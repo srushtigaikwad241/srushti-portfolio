@@ -5,7 +5,7 @@ function Hero() {
   return (
     <section id="home" className="home-page">
       <div className="home-photo-background">
-        <img src="src/assets/WhatsApp Image 2026-10-18 at 16.59.28.jpeg" alt="Portrait of Srushti Gaikwad" />
+        <img src="src/assets/pittu.jpeg" alt="Portrait of Srushti Gaikwad" />
       </div>
 
       <div className="home-photo-overlay"></div>
@@ -41,7 +41,7 @@ function Hero() {
           </a>
 
           <a
-            href="public/Srushti_Gaikwad_Resume.pdf"
+            href="/Srushti_Gaikwad_Resume.pdf"
             className="hero-button hero-button-secondary"
             target="_blank"
             rel="noreferrer"
