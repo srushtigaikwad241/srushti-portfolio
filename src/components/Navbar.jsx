@@ -1,82 +1,76 @@
+
 import { useState } from "react";
+
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Journey", href: "#journey" },
+  { label: "GitHub", href: "#github" },
+  { label: "Contact", href: "#contact" },
+];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Journey", href: "#journey" },
-  { name: "GitHub", href: "#github" },
-  { name: "Contact", href: "#contact" },
-];
-
-  const handleLinkClick = () => {
-    setMenuOpen(false);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="navbar">
-      <nav className="navbar-container">
-
-        {/* Logo */}
-        <a href="#home" className="logo">
-          S<span>.</span>
-        </a>
-
-        {/* Desktop Navigation */}
-        <div className="nav-links">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="nav-link"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-
-        {/* Contact Button */}
-        <a href="#contact" className="nav-button">
-          Let's Talk
-        </a>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="menu-button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+      <div className="navbar-container">
+        {/* Brand */}
+        <a
+          href="#home"
+          className="navbar-brand"
+          aria-label="Srushti Gaikwad home"
+          onClick={closeMenu}
         >
-          {menuOpen ? "✕" : "☰"}
-        </button>
-      </nav>
+          <span className="navbar-logo">SG</span>
 
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div className="mobile-menu">
+          <span className="navbar-brand-text">
+            <strong>Srushti Gaikwad</strong>
+            <small>Computer Engineering Student</small>
+          </span>
+        </a>
+
+        {/* Mobile menu button */}
+        <button
+          className="navbar-toggle"
+          type="button"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className={menuOpen ? "toggle-line open" : "toggle-line"} />
+          <span className={menuOpen ? "toggle-line open" : "toggle-line"} />
+          <span className={menuOpen ? "toggle-line open" : "toggle-line"} />
+        </button>
+
+        {/* Navigation */}
+        <nav
+          className={`navbar-links ${menuOpen ? "navbar-links-open" : ""}`}
+          aria-label="Main navigation"
+        >
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.label}
               href={link.href}
-              className="mobile-link"
-              onClick={handleLinkClick}
+              onClick={closeMenu}
             >
-              {link.name}
+              {link.label}
             </a>
           ))}
 
           <a
             href="#contact"
-            className="mobile-contact"
-            onClick={handleLinkClick}
+            className="navbar-cta"
+            onClick={closeMenu}
           >
-            Let's Talk
+            Let's Talk <span>↗</span>
           </a>
-        </div>
-      )}
+        </nav>
+      </div>
     </header>
   );
 }

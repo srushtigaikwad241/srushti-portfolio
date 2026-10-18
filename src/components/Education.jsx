@@ -1,85 +1,63 @@
+
 import { motion } from "motion/react";
 
 function Education() {
   return (
     <section id="education" className="education-section">
-      <div className="section-container">
-
-        {/* Section Heading */}
+      <div className="education-container">
         <motion.div
-          className="section-heading"
-          initial={{ opacity: 0, y: 30 }}
+          className="education-heading"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="section-label">06 — EDUCATION</span>
-
-          <h2>
-            My academic{" "}
-            <span className="gradient-text">foundation.</span>
-          </h2>
-
+          <span className="education-eyebrow">04 — EDUCATION</span>
+          <h2>My academic <span>foundation.</span></h2>
           <p>
-            Building a strong technical foundation through academic learning,
-            practical projects, and continuous exploration of modern
-            technologies.
+            The knowledge and experience I'm building through my
+            computer engineering studies.
           </p>
         </motion.div>
 
-        {/* Education Card */}
-        <motion.div
+        <motion.article
           className="education-card"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="education-left">
-            <span className="education-number">01</span>
-
-            <div className="education-line"></div>
-
-            <span className="education-status">
-              CURRENT
-            </span>
+          <div className="education-card-icon" aria-hidden="true">
+            <span>ED</span>
           </div>
 
-          <div className="education-content">
+          <div className="education-card-content">
+            <span className="education-level">DIPLOMA · THIRD YEAR</span>
 
-            <span className="education-type">
-              DIPLOMA
-            </span>
+            <h3>Diploma in Computer Engineering</h3>
 
-            <h3>
-              Diploma in Computer Engineering
-            </h3>
-
-            <h4>
-              Your Institute Name
-            </h4>
-
-            <p>
-              Currently developing a strong foundation in programming,
-              database management, computer networks, operating systems,
-              web development, data mining, cloud computing, and
-              cybersecurity through academic coursework and practical
-              projects.
+            <p className="education-institute">
+              Government Polytechnic Pune
             </p>
 
-            <div className="education-tags">
+            <p className="education-description">
+              Developing a foundation in programming, web development,
+              databases, software engineering, and computer systems
+              through coursework and practical projects.
+            </p>
+
+            <div className="education-subjects">
               <span>Programming</span>
-              <span>DBMS</span>
+              <span>Database Management</span>
               <span>Web Development</span>
-              <span>Networking</span>
-              <span>Data Mining</span>
-              <span>Cybersecurity</span>
               <span>Cloud Computing</span>
             </div>
-
           </div>
-        </motion.div>
 
+          <div className="education-side-label">
+            <span>01</span>
+          </div>
+        </motion.article>
       </div>
     </section>
   );

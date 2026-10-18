@@ -1,0 +1,158 @@
+.journey-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-timeline {
+  position: relative;
+  width: min(900px, 100%);
+  margin: 55px auto 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #a78bfa 10%,
+    #f0abfc 90%,
+    transparent
+  );
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  width: 50%;
+  margin-bottom: 35px;
+}
+
+.timeline-left {
+  justify-content: flex-end;
+  padding-right: 38px;
+}
+
+.timeline-right {
+  margin-left: 50%;
+  padding-left: 38px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 30px;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #0b0b14;
+  border-radius: 50%;
+  background: #c4b5fd;
+  box-shadow: 0 0 15px rgba(167, 139, 250, 0.8);
+}
+
+.timeline-left .timeline-dot {
+  right: -7px;
+}
+
+.timeline-right .timeline-dot {
+  left: -7px;
+}
+
+.timeline-card {
+  width: 100%;
+  padding: 25px;
+  border: 1px solid rgba(190, 170, 255, 0.18);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #1b1b2d, #11111e);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(196, 181, 253, 0.55);
+}
+
+.timeline-year {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #f0abfc;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.timeline-card h3 {
+  margin: 0 0 12px;
+  color: #f4f0ff;
+  font-size: 20px;
+}
+
+.timeline-card p {
+  margin: 0;
+  color: #aaa8c0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.timeline-tags span {
+  padding: 7px 10px;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 8px;
+  background: rgba(167, 139, 250, 0.08);
+  color: #d9ccff;
+  font-size: 12px;
+}
+
+@media (max-width: 650px) {
+  .journey-timeline {
+    margin-top: 35px;
+  }
+
+  .timeline-line {
+    left: 8px;
+  }
+
+  .timeline-item,
+  .timeline-right {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 32px;
+  }
+
+  .timeline-left {
+    justify-content: flex-start;
+  }
+
+  .timeline-left .timeline-dot,
+  .timeline-right .timeline-dot {
+    top: 27px;
+    right: auto;
+    left: 1px;
+  }
+
+  .timeline-card {
+    padding: 20px;
+  }
+
+  .timeline-card h3 {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-card {
+    transition: none;
+  }
+}

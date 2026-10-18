@@ -1,103 +1,95 @@
+
 import { motion } from "motion/react";
 
 function About() {
   return (
     <section id="about" className="about-section">
-      <div className="section-container">
-
+      <div className="about-container">
         <motion.div
-          className="section-heading"
-          initial={{ opacity: 0, y: 30 }}
+          className="about-heading"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="section-label">01 — ABOUT ME</span>
+          <span className="about-eyebrow">01 — ABOUT ME</span>
 
           <h2>
-            Turning ideas into{" "}
-            <span className="gradient-text">digital experiences.</span>
+            A little about <span>me.</span>
           </h2>
 
           <p>
-            I'm a Computer Engineering student passionate about building
-            practical software solutions and exploring modern technologies.
+            My background, interests, and the skills I'm developing
+            as I work toward my career in technology.
           </p>
         </motion.div>
 
-        <div className="about-grid">
-
+        <div className="about-layout">
           <motion.div
-            className="about-card about-main-card"
-            initial={{ opacity: 0, x: -40 }}
+            className="about-visual"
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="about-number">01</div>
+            <div className="about-image-frame">
+              <img
+                src="src/assets/srushti-anime.png"
+                alt="Srushti Gaikwad"
+                className="about-image"
+              />
+            </div>
 
-            <h3>Who I Am</h3>
-
-<p>
-  I’m a Computer Engineering student with a strong interest in
-  software development and practical technology solutions. I enjoy
-  building web applications, working with databases, exploring
-  cybersecurity concepts, and applying data mining techniques to
-  real-world problems.
-</p>
-
-<p>
-  I believe the best way to grow as a developer is through hands-on
-  experience. I continuously challenge myself with academic and
-  personal projects, learn new technologies, and improve my
-  problem-solving skills with every project I build.
-</p>
+            <div className="about-image-caption">
+              <span className="about-caption-dot"></span>
+              <span>Learning by building</span>
+            </div>
           </motion.div>
 
           <motion.div
-            className="about-card"
-            initial={{ opacity: 0, x: 40 }}
+            className="about-copy"
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="about-number">02</div>
+            <h3>
+              Hi, I'm Srushti — a Computer Engineering student.
+            </h3>
 
-           <h3>What I Build</h3>
+            <p>
+              I'm pursuing a Diploma in Computer Engineering at
+              Government Polytechnic Pune. I enjoy exploring how
+              software works and applying what I learn through
+              practical projects.
+            </p>
 
-  <div className="about-list">
-    <span>▹ Web Applications</span>
-    <span>▹ Backend & Database Systems</span>
-    <span>▹ Cybersecurity Projects</span>
-    <span>▹ Data Mining Projects</span>
-  </div>
+            <p>
+              My interests include Python programming, web
+              development, cloud computing, and cybersecurity.
+              I'm continuously improving my technical knowledge
+              and communication skills through hands-on learning.
+            </p>
+
+            <div className="about-focus">
+              <span className="about-focus-label">CURRENT INTERESTS</span>
+
+              <div className="about-focus-tags">
+                <span>Python</span>
+                <span>Web Development</span>
+                <span>Cloud Computing</span>
+                <span>Cybersecurity</span>
+              </div>
+            </div>
+
+            <a href="#contact" className="about-contact-link">
+              Let's connect <span>↗</span>
+            </a>
           </motion.div>
-
-          <motion.div
-            className="about-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-          >
-            <div className="about-number">03</div>
-
-            <h3>Currently Learning</h3>
-
-  <div className="about-list">
-    <span>▹ Advanced React</span>
-    <span>▹ Node.js & Backend Development</span>
-    <span>▹ Cloud Computing</span>
-    <span>▹ Software Development Practices</span>
-  </div>
-          </motion.div>
-
         </div>
       </div>
     </section>
   );
-  
 }
-
 
 export default About;

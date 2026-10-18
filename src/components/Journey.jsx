@@ -1,116 +1,86 @@
+
 import { motion } from "motion/react";
 
-const journey = [
+const journeyItems = [
   {
-    year: "2024",
-    title: "Started Computer Engineering",
+    number: "01",
+    period: "DIPLOMA STUDIES",
+    title: "Computer Engineering",
     description:
-      "Began my journey in Computer Engineering and developed a strong interest in programming, databases, and software development.",
-    tags: ["C", "C++", "Java", "DBMS"],
+      "Building a foundation in programming, databases, software development, and computer engineering concepts.",
+    type: "Education",
   },
   {
-    year: "2025",
-    title: "Exploring Development",
+    number: "02",
+    period: "PROJECT EXPERIENCE",
+    title: "TrustWatch",
     description:
-      "Started building practical projects and explored frontend development, Python, databases, and application development.",
-    tags: ["HTML", "CSS", "JavaScript", "Python", "MySQL"],
+      "Working on an internal threat detection and prevention project to explore cybersecurity and user activity monitoring.",
+    type: "Project",
   },
   {
-    year: "2025 — 2026",
-    title: "AI & Data Mining",
+    number: "03",
+    period: "TECHNICAL DEVELOPMENT",
+    title: "Web & Cloud Technologies",
     description:
-      "Explored machine learning concepts and data mining techniques through practical projects and experiments.",
-    tags: ["WEKA", "KNN", "Naive Bayes", "Data Mining"],
+      "Practising web development and strengthening my understanding of Python, databases, and cloud computing.",
+    type: "Learning",
   },
   {
-    year: "2026",
-    title: "Cybersecurity & Full-Stack",
+    number: "04",
+    period: "NEXT STEP",
+    title: "Internship & Industry Experience",
     description:
-      "Working on security-focused systems while improving my full-stack development skills and understanding of modern web technologies.",
-    tags: ["React", "Node.js", "Flask", "Cybersecurity"],
-  },
-  {
-    year: "Now",
-    title: "Building & Learning",
-    description:
-      "Currently focused on building real-world projects, improving problem-solving skills, and preparing for the next stage of my technical career.",
-    tags: ["React", "AI", "Cloud", "Security"],
+      "Looking for opportunities to apply my knowledge, learn from experienced teams, and contribute to practical projects.",
+    type: "Career Goal",
   },
 ];
 
 function Journey() {
   return (
     <section id="journey" className="journey-section">
-      <div className="section-container">
-
+      <div className="journey-container">
         <motion.div
-          className="section-heading"
-          initial={{ opacity: 0, y: 30 }}
+          className="journey-heading"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="section-label">04 — JOURNEY</span>
-
-          <h2>
-            My learning{" "}
-            <span className="gradient-text">journey.</span>
-          </h2>
-
+          <span className="journey-eyebrow">03 — MY JOURNEY</span>
+          <h2>Learning, building, <span>growing.</span></h2>
           <p>
-            A timeline of the technologies, projects, and experiences that
-            have shaped my development journey.
+            The experiences and goals shaping my journey in computer
+            engineering and technology.
           </p>
         </motion.div>
 
         <div className="journey-timeline">
-
-          <div className="timeline-line"></div>
-
-          {journey.map((item, index) => (
-            <motion.div
-              className={`timeline-item ${
-                index % 2 === 0 ? "timeline-left" : "timeline-right"
-              }`}
-              key={`${item.year}-${item.title}`}
-              initial={{
-                opacity: 0,
-                x: index % 2 === 0 ? -40 : 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
+          {journeyItems.map((item, index) => (
+            <motion.article
+              className="journey-item"
+              key={item.number}
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.08,
-              }}
+              transition={{ duration: 0.45, delay: index * 0.1 }}
             >
-              <div className="timeline-dot"></div>
+              <div className="journey-marker">
+                <span>{item.number}</span>
+              </div>
 
-              <div className="timeline-card">
-
-                <span className="timeline-year">
-                  {item.year}
-                </span>
-
-                <h3>{item.title}</h3>
-
-                <p>{item.description}</p>
-
-                <div className="timeline-tags">
-                  {item.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+              <div className="journey-card">
+                <div className="journey-card-top">
+                  <span className="journey-period">{item.period}</span>
+                  <span className="journey-type">{item.type}</span>
                 </div>
 
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-
         </div>
-
       </div>
     </section>
   );

@@ -1,114 +1,93 @@
+
 import { motion } from "motion/react";
+
+const contactLinks = [
+  {
+    label: "Email",
+    value: "gaikwadsrushti241@gmail.com",
+    href: "mailto:gaikwadsrushti241@gmail.com",
+    symbol: "@",
+  },
+  {
+    label: "LinkedIn",
+    value: "Connect professionally",
+    href: "https://www.linkedin.com/in/srushti-gaikwad-a54761422/",
+    symbol: "in",
+  },
+  {
+    label: "GitHub",
+    value: "Explore my projects",
+    href: "https://github.com/srushtigaikwad241",
+    symbol: "<>",
+  },
+];
 
 function Contact() {
   return (
     <section id="contact" className="contact-section">
-      <div className="section-container">
-
+      <div className="contact-container">
         <motion.div
-          className="contact-wrapper"
-          initial={{ opacity: 0, y: 40 }}
+          className="contact-heading"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
+          <span className="contact-eyebrow">07 — GET IN TOUCH</span>
 
-          {/* Left Content */}
-          <div className="contact-content">
+          <h2>Let's build something <span>meaningful.</span></h2>
 
-            <span className="section-label">
-              09 — CONTACT
-            </span>
+          <p>
+            I'm interested in internship opportunities where I can learn,
+            contribute to projects, and grow as a computer engineering student.
+            Feel free to connect with me.
+          </p>
+        </motion.div>
 
-            <h2>
-              Let's build something{" "}
-              <span className="gradient-text">
-                meaningful.
-              </span>
-            </h2>
-
+        <motion.div
+          className="contact-panel"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="contact-panel-copy">
+            <span className="contact-panel-label">HAVE AN OPPORTUNITY?</span>
+            <h3>I'd be happy to hear from you.</h3>
             <p>
-              I'm always interested in learning, building new projects,
-              and connecting with people who are working on interesting
-              ideas and opportunities.
-            </p>
-
-            <div className="contact-info">
-
-              <a
-                href="mailto:gaikwadsrushti@gmail.com"
-                className="contact-item"
-              >
-                <span className="contact-icon">@</span>
-
-                <div>
-                  <small>Email</small>
-                  <strong>gaikwadsrushti@gmail.com</strong>
-                </div>
-              </a>
-
-              <a
-                href="https://github.com/srushtigaikwad241"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-item"
-              >
-                <span className="contact-icon">↗</span>
-
-                <div>
-                  <small>GitHub</small>
-                  <strong>View my projects</strong>
-                </div>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-item"
-              >
-                <span className="contact-icon">in</span>
-
-                <div>
-                  <small>LinkedIn</small>
-                  <strong>Connect with me</strong>
-                </div>
-              </a>
-
-            </div>
-          </div>
-
-          {/* Right Card */}
-          <div className="contact-card">
-
-            <div className="contact-card-glow"></div>
-
-            <span className="contact-card-label">
-              OPEN TO
-            </span>
-
-            <h3>
-              New opportunities
-            </h3>
-
-            <p>
-              Interested in internships, freelance projects,
-              collaborative development, and opportunities to
-              grow as a developer.
+              Reach out by email or connect with me on my professional
+              profiles.
             </p>
 
             <a
-              href="mailto:gaikwadsrushti@gmail.com"
-              className="contact-button"
+              className="contact-email-button"
+              href="mailto:gaikwadsrushti241@gmail.com"
             >
-              Get in touch
-              <span>→</span>
+              Send me an email <span>↗</span>
             </a>
-
           </div>
 
-        </motion.div>
+          <div className="contact-links">
+            {contactLinks.map((link) => (
+              <a
+                className="contact-link-card"
+                href={link.href}
+                key={link.label}
+                target={link.label === "Email" ? undefined : "_blank"}
+                rel={link.label === "Email" ? undefined : "noreferrer"}
+              >
+                <span className="contact-link-symbol">{link.symbol}</span>
 
+                <span className="contact-link-text">
+                  <strong>{link.label}</strong>
+                  <small>{link.value}</small>
+                </span>
+
+                <span className="contact-link-arrow">↗</span>
+              </a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

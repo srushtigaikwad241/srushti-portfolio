@@ -1,117 +1,80 @@
-import { useEffect, useState } from "react";
+
+const footerLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 function Footer() {
-  const [showTop, setShowTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowTop(window.scrollY > 500);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <>
-      {/* Back To Top */}
-      {showTop && (
-        <button
-          className="back-to-top"
-          onClick={scrollToTop}
-          aria-label="Back to top"
-        >
-          ↑
-        </button>
-      )}
-
-      <footer className="footer">
-        <div className="section-container">
-
-          <div className="footer-top">
-
-            {/* Brand */}
-            <div className="footer-brand">
-              <a href="#home" className="footer-logo">
-                S<span>.</span>
-              </a>
-
-              <p>
-                Computer Engineering student building practical
-                projects and continuously learning modern
-                technologies.
-              </p>
-            </div>
-
-            {/* Navigation */}
-            <div className="footer-navigation">
-              <span className="footer-title">
-                NAVIGATION
-              </span>
-
-              <a href="#about">About</a>
-              <a href="#skills">Skills</a>
-              <a href="#projects">Projects</a>
-              <a href="#education">Education</a>
-              <a href="#contact">Contact</a>
-            </div>
-
-            {/* Connect */}
-            <div className="footer-connect">
-              <span className="footer-title">
-                CONNECT
-              </span>
-
-              <a
-                href="https://github.com/srushtigaikwad241"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub ↗
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn ↗
-              </a>
-
-              <a href="mailto:your-email@example.com">
-                Email ↗
-              </a>
-            </div>
-
-          </div>
-
-          <div className="footer-line"></div>
-
-          <div className="footer-bottom">
-
-            <span>
-              © {new Date().getFullYear()} Srushti Gaikwad
+    <footer className="footer-section">
+      <div className="footer-container">
+        <div className="footer-main">
+          <a href="#home" className="footer-brand">
+            <span className="footer-logo">SG</span>
+            <span className="footer-brand-text">
+              <strong>Srushti Gaikwad</strong>
+              <small>Computer Engineering Student</small>
             </span>
+          </a>
 
-            <span>
-              Designed & Built with React
-            </span>
+          <p className="footer-message">
+            Learning, building, and growing through technology.
+          </p>
 
+          <div className="footer-socials">
+            <a
+              href="https://github.com/srushtigaikwad241"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visit GitHub profile"
+            >
+              GitHub <span>↗</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/srushti-gaikwad-a54761422/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visit LinkedIn profile"
+            >
+              LinkedIn <span>↗</span>
+            </a>
+
+            <a
+              href="mailto:gaikwadsrushti241@gmail.com"
+              aria-label="Send email"
+            >
+              Email <span>↗</span>
+            </a>
           </div>
-
         </div>
-      </footer>
-    </>
+
+        <div className="footer-divider"></div>
+
+        <div className="footer-bottom">
+          <p>
+            © {currentYear} Srushti Gaikwad. All rights reserved.
+          </p>
+
+          <nav className="footer-nav" aria-label="Footer navigation">
+            {footerLinks.map((link) => (
+              <a key={link.label} href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <a href="#home" className="footer-back-top">
+            Back to top ↑
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }
 

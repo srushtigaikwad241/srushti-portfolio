@@ -1,121 +1,96 @@
+
 import { motion } from "motion/react";
+
+const repositories = [
+  {
+    number: "01",
+    name: "TrustWatch",
+    description:
+      "An internal threat detection and prevention project focused on cybersecurity and user activity monitoring.",
+    technologies: ["Python", "MySQL", "JavaScript"],
+    url: "https://github.com/srushtigaikwad241/TrustWatch-Internal-Threat-Detection-System",
+  },
+];
 
 function Github() {
   return (
     <section id="github" className="github-section">
-      <div className="section-container">
-
+      <div className="github-container">
         <motion.div
-          className="section-heading"
-          initial={{ opacity: 0, y: 30 }}
+          className="github-heading"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="section-label">
-            08 — GITHUB
-          </span>
-
-          <h2>
-            Code, projects &{" "}
-            <span className="gradient-text">
-              continuous learning.
-            </span>
-          </h2>
-
+          <span className="github-eyebrow">06 — GITHUB & CODE</span>
+          <h2>Code, projects & <span>continuous learning.</span></h2>
           <p>
-            My GitHub is where I share projects, experiments, and
-            development work while continuously improving my technical
-            skills.
+            Explore my project work and follow my journey as I continue
+            learning and building with technology.
           </p>
         </motion.div>
 
-        <div className="github-grid">
-
-          {/* Main GitHub Card */}
-          <motion.div
-            className="github-main-card"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            whileHover={{ y: -6 }}
-          >
-            <div className="github-card-top">
-              <span className="github-symbol">
-                {"</>"}
-              </span>
-
-              <span className="github-label">
-                GITHUB PROFILE
-              </span>
+        <motion.div
+          className="github-profile-card"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="github-profile-info">
+            <div className="github-avatar">SG</div>
+            <div>
+              <h3>Srushti Gaikwad</h3>
+              <p>@srushtigaikwad241</p>
             </div>
+          </div>
 
-            <h3>
-              Explore my code
-            </h3>
+          <a
+            className="github-profile-link"
+            href="https://github.com/srushtigaikwad241"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Visit GitHub Profile <span>↗</span>
+          </a>
+        </motion.div>
 
-            <p>
-              Explore my repositories, academic projects, and
-              development experiments.
-            </p>
-
-            <a
-              href="https://github.com/srushtigaikwad241"
-              target="_blank"
-              rel="noreferrer"
-              className="github-button"
+        <div className="github-repositories">
+          {repositories.map((repo, index) => (
+            <motion.article
+              className="github-repo-card"
+              key={repo.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.1 }}
             >
-              Visit GitHub
-              <span>↗</span>
-            </a>
-          </motion.div>
+              <div className="github-repo-top">
+                <span className="github-repo-icon">⌘</span>
+                <span className="github-repo-number">{repo.number}</span>
+              </div>
 
-          {/* Stats */}
-          <motion.div
-            className="github-stats-card"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-          >
-            <div className="github-stat">
-              <span className="github-stat-number">
-                Projects
-              </span>
+              <h3>{repo.name}</h3>
+              <p>{repo.description}</p>
 
-              <span className="github-stat-text">
-                Academic & personal work
-              </span>
-            </div>
+              <div className="github-repo-tags">
+                {repo.technologies.map((technology) => (
+                  <span key={technology}>{technology}</span>
+                ))}
+              </div>
 
-            <div className="github-divider"></div>
-
-            <div className="github-stat">
-              <span className="github-stat-number">
-                Learning
-              </span>
-
-              <span className="github-stat-text">
-                Consistent technical growth
-              </span>
-            </div>
-
-            <div className="github-divider"></div>
-
-            <div className="github-stat">
-              <span className="github-stat-number">
-                Open
-              </span>
-
-              <span className="github-stat-text">
-                Building & exploring
-              </span>
-            </div>
-          </motion.div>
-
+              <a
+                className="github-repo-link"
+                href={repo.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Explore Repository <span>↗</span>
+              </a>
+            </motion.article>
+          ))}
         </div>
-
       </div>
     </section>
   );
