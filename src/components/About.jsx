@@ -1,6 +1,6 @@
 
 import { motion } from "motion/react";
-import profileImage from "../assets/pittu.jpeg";
+import profileImage from "../assets/srushti-anime.pngS";
 
 function About() {
   return (
