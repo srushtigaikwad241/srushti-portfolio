@@ -1,11 +1,12 @@
 
 import { motion } from "motion/react";
+import profileImage from "../assets/pittu.jpeg";
 
 function Hero() {
   return (
     <section id="home" className="home-page">
       <div className="home-photo-background">
-        <img src="src/assets/pittu.jpeg" alt="Portrait of Srushti Gaikwad" />
+        <img src={profileImage} alt="Portrait of Srushti Gaikwad" />
       </div>
 
       <div className="home-photo-overlay"></div>

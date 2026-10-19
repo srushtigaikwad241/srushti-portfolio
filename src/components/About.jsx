@@ -1,5 +1,6 @@
 
 import { motion } from "motion/react";
+import profileImage from "../assets/pittu.jpeg";
 
 function About() {
   return (
@@ -34,7 +35,7 @@ function About() {
           >
             <div className="about-image-frame">
               <img
-                src="src/assets/srushti-anime.png"
+                src={profileImage}
                 alt="Srushti Gaikwad"
                 className="about-image"
               />
